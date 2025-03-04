@@ -1,25 +1,50 @@
-/* General styles for the body to center the layout */
+/* General style for body */
 body {
+    margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full height of the viewport */
-    margin: 0;
-    font-family: Arial, sans-serif; /* Optional, gives a clean font styling */
+    font-family: 'Georgia', serif;
+    background-color: #f8f2ec; /* Light beige background, gives a crafting/artisan feel */
+    color: #4b3832; /* Deep brown color for text */
 }
 
-/* Keep the title at the top and centered */
+/* Heading styling */
 h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #c96a43; /* Adds a warm orange/brown border for style */
+    padding-bottom: 10px;
+}
+
+/* Subtext for email link */
+p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #6f4e37; /* Medium brown for softer subtitle */
+}
+
+/* Anchor tag for the email */
+a {
+    font-size: 1.2rem;
+    color: #c96a43; /* Muted orange for emphasis */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling to add a personal touch */
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.9rem;
+    color: #8c7b75; /* Softer brown for less focus */
     text-align: center;
-    margin: 0 0 20px 0; /* Add spacing below the title for proper separation */
 }
-
-/* Center the image below the title */
-img {
-    display: block; /* Ensures the image behaves like a block element */
-    max-width: 100%; /* Keeps the image responsive */
-    height: auto; /* Maintains the aspect ratio of the image */
-    max-height: 600px;
-}
-
