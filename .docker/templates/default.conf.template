@@ -1,0 +1,37 @@
+server {
+    listen ${NGINX_PORT};
+    root ${NGINX_WEB_ROOT};
+
+    client_max_body_size ${NGINX_MAX_BODY_SIZE};
+
+    # Needs to be set both here and in nginx.conf.
+    set_real_ip_from 172.16.0.0/16;
+    real_ip_recursive on;
+    real_ip_header X-Forwarded-For;
+
+    index index.html index.htm;
+
+    location / {
+      try_files $uri $uri/ =404;
+    }
+
+    location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+
+    location ~* \.(txt|log)$ {
+        deny all;
+    }
+
+    # Disable .htaccess and other hidden files
+    location ~ /\. {
+        deny all;
+        log_not_found off;
+    }
+
+    # Send log message to files symlinked to stdout/stderr.
+    error_log /dev/stderr;
+    access_log /dev/stdout main;
+}
